@@ -4,7 +4,7 @@ variable "environment" {
 
   validation {
     condition     = var.environment == "dev" || var.environment == "qa" || var.environment == "hub" || var.environment == "uat" || var.environment == "prod" || var.environment == "tst"
-    error_message = " Invalid environment name. Should be one of these - dev,qa,hub,uat,prod,tst"
+    error_message = "Invalid environment name. Should be one of these - dev,qa,hub,uat,prod,tst."
   }
 }
 

@@ -1,26 +1,36 @@
-variable "rg_name" {
-  description = "The Azure Region where the Resource Group should exist. Changing this forces a new Resource Group to be created."
-  type = string
-  default = ""
+variable "environment" {
+  type        = string
+  description = "(Required) Custom variable. This the enviorment name where the resouce group will be created."
+
+  validation {
+    condition     = var.environment == "dev" || var.environment == "qa" || var.environment == "hub" || var.environment == "uat" || var.environment == "prod" || var.environment == "tst"
+    error_message = "Invalid environment name. Should be one of these - dev,qa,hub,uat,prod,tst."
+  }
 }
 
-variable "st_name" {
-  description = "(Required) Specifies the name of the storage account. Changing this forces a new resource to be created. This must be unique across the entire Azure service, not just within the resource group."
-  type = string
-  default = ""
+variable "main_project" {
+  type        = string
+  description = "(Required) Custom variable. Main project name."
+}
+
+variable "sub_project" {
+  type        = string
+  description = "(Required) Custom variable. Sub project name."
 }
 
 variable "location" {
-    description =  "(Required) The Azure Region where the Resource Group should exist. Changing this forces a new Resource Group to be created."
-    type = string
-    default = ""  
+  type        = string
+  description = "(Required) The Azure Region where the Resource Group should exist. Changing this forces a new Resource Group to be created."
 }
 
 variable "tags" {
-    description =  "(Optional) A mapping of tags which should be assigned to the Resource Group."
-    type = map(string)
-    default = {      
-    }
+  type        = map(string)
+  description = "(Optional) A mapping of tags which should be assigned to the Resource Group."
+}
+
+variable "resource_group_name" {
+  description = "The name of the Azure Resource Group."
+  type        = string
 }
 
 variable "account_tier" {

@@ -1,5 +1,5 @@
 resource "azurerm_function_app" "example" {
-  name                       = var.fun_name
+  name                       = local.name
   location                   = var.location
   resource_group_name        = var.rg_name
   app_service_plan_id        = var.app_service_plan_id

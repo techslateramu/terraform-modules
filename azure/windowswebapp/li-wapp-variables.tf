@@ -67,9 +67,9 @@ variable "site_config" {
 
     application_stack = optional(list(object({
       current_stack             = optional(string)
-      docker_container_name     = optional(string)
-      docker_container_registry = optional(string)
-      docker_container_tag      = optional(string)
+      # docker_container_name     = optional(string)
+      # docker_container_registry = optional(string)
+      # docker_container_tag      = optional(string)
       dotnet_version            = optional(string)
     })))
 

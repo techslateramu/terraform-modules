@@ -35,10 +35,10 @@ resource "azurerm_windows_web_app" "windows_web_app" {
         for_each = site_config.value.application_stack != null ? site_config.value.application_stack : []
         content {
           current_stack             = try(application_stack.value.current_stack, "dotnetcore") # valid values : dotnet, node, python, php, java
-          docker_container_name     = try(application_stack.value.docker_container_name, "")
-          docker_container_registry = try(application_stack.value.docker_container_registry, "")
-          docker_container_tag      = try(application_stack.value.docker_container_tag, "")
-          dotnet_version            = try(application_stack.value.docker_container_tag, "") # only if current_stack is set to dotnet  - 
+          # docker_container_name     = try(application_stack.value.docker_container_name, "")
+          # docker_container_registry = try(application_stack.value.docker_container_registry, "")
+          # docker_container_tag      = try(application_stack.value.docker_container_tag, "")
+          dotnet_version            = try(application_stack.value.docker_container_tag, "v6.0") # only if current_stack is set to dotnet  - 
         }
       }
 
